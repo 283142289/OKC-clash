@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clash 节点管理</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .message {
+      margin-top: 20px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Clash 节点管理</h1>
+  <form action="/update-url" method="POST">
+    <label for="node_url">更新节点 URL</label>
+    <input type="text" id="node_url" name="node_url" placeholder="输入新的节点 URL" value="{{ current_url }}">
+    <button type="submit">更新 URL</button>
+  </form>
+
+  {% if message %}
+  <div class="message">
+    <p>{{ message }}</p>
+  </div>
+  {% endif %}
+
+  <h2>当前节点 URL:</h2>
+  <p>{{ current_url }}</p>
+</body>
+</html>
